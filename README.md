@@ -10,8 +10,8 @@ cappuccino = [200, 100, 12, 1, 6]
 def action_remaining():
   print('The coffee machine has:')
   for b in range(4):
-    print(balance[b], 'of', materials[b])
-  print('$' + str(balance[b]), 'of money')
+    print(f'{balance[b]} of {materials[b]}')
+  print(f'$ {balance[4]} of money')
 
 #высчитывает затраты и прибыль на одну чашку выбранного кофе
 def calculate(coffee_name):
@@ -19,7 +19,7 @@ def calculate(coffee_name):
   #если ресурсов недостаточно, то не может осуществить приготовление кофе
   for c in range(4):
     if balance [c] < coffee_name[c]:
-      print('Sorry, not enough', materials[c] + '!') 
+      print(f'Sorry, not enough {materials[c]}!') 
       return
   print('I have enough resources, making your coffee!')
   for d in range(4):
@@ -41,13 +41,13 @@ def action_buy():
 def action_fill():
   global balance
   for f in range(4):
-    print('Write how many ml of', materials[f], 'do you want to add:')
+    print(f'Write how many ml of {materials[f]} do you want to add:')
     balance[f] += int(input())
 
 #действие - забрать деньги из кофемашины
 def action_take():
   global balance
-  print('I gave you $' + str(balance[4]), materials[4])
+  print(f'I gave you ${balance[4]} {materials[4]}')
   balance[4] = 0
 
 #цикл выбора действия до ввода слова "exit"
